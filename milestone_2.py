@@ -10,3 +10,6 @@ word = random.choice(word_list)
 for num in range(5):
     word = random.choice(word_list)
     print(word)
+
+guess = input("Please enter a single letter: ")
+guess = guess.lower()
