@@ -11,5 +11,11 @@ for num in range(5):
     word = random.choice(word_list)
     print(word)
 
-guess = input("Please enter a single letter: ")
+guess = input("\nPlease guess a letter: ")
 guess = guess.lower()
+guess_len = len(guess)
+
+if guess_len == 1:
+    print("Good guess!")
+else:
+    print("Oops! That is not a valid input.")
