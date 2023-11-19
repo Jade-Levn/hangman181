@@ -5,4 +5,6 @@ This is an implementation of the Hangman game, where the computer thinks of a wo
 
 The purpose of this of this project is to put everything I have learnt so far into practice, and to make me use git and GitHub much more than I currently do!
 
-==More updates to come!==
+The source code is written in python and currently contains 3 files, 2 milestone files and a template.
+
+Does not currently have a license.
