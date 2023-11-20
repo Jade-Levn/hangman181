@@ -17,6 +17,11 @@ class Hangman:
         guess = guess.lower()
         if guess in word:
             print(f"Good guess! {guess} is in the word.")
+            for letter in word:
+                if letter == guess:
+                    #to replace underscores with correct guess
+                    pass
+                    #print(guess, letter)
         else:
             print(f"Sorry, {guess} is not in the word. Try again.")
 
