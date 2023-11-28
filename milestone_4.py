@@ -12,29 +12,21 @@ class Hangman:
 
     def check_guess(self, guess):
         guess = guess.lower()
-            
-        #if guess in word:
-            #print(f"Good guess! {guess} is in the word.")
-        #for index, letter in enumerate(self.word_guessed):
-            #print(f"{letter} is at index {index}")
-        
+        """
         for letter in word:
             if letter == guess:
                 current_index = word.index(letter)
                 #print(current_index)
-                print(f"{letter} is at {self.word_guessed[current_index]} = index: {current_index}")
-
-                #print(f"Yes, {guess} is in this word")
-                #pass
-            #else:
-                #print(f"Your guess: {guess} does not equal {letter}")
-            
-            #to replace underscores with correct guess
-            #letter_locations = word_guessed.index
-                #print(guess, letter)
-            #word_guessed
-        #else:
-            #print(f"Sorry, {guess} is not in the word. Try again.")
+                print(f"{letter} is at = index: {current_index}")
+                self.word_guessed[current_index] = guess
+                print(self.word_guessed)
+        """
+        for index, letter in enumerate(word):
+            if letter == guess:
+                print(f"{letter} is at = index: {index}")
+                
+                self.word_guessed[index] = guess
+                print(self.word_guessed)
 
 
     def ask_for_input(self):
@@ -43,16 +35,10 @@ class Hangman:
             self.word_guessed.append('_')
         print(self.word_guessed)
 
-        #for index, letter in enumerate(self.word_guessed):
-            #print(f"{letter} is at index {index}")
-            #print(index, letter)
-            #pass
-    
         
         while True:
             guess = input("Please guess a letter: ")
             #if len(guess) == 1 and guess.isalpha():
-                #print()
                 #break
             if len(guess) != 1:
                 print("Invalid letter. Please, enter a single alphabetical character.")
