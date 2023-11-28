@@ -5,59 +5,50 @@ class Hangman:
         self.word_list = word_list
         self.num_lives = num_lives
         
-        word_guessed = []
-        #for i in range(len(word)):
-            #word_guessed.append('_')
-        #print(word_guessed)
-        """
-        word_blanks = []
-        for i in range(len(word)):
-            word_blanks.append('_')
-        print(word_blanks)
-        """
-
-        #for index, underscore in enumerate(zip(word_guessed, letter)):
-            #print(index, underscore)
-            #pass
+        self.word_guessed = []
         
         num_letters = len(set(word))
-        #list_of_guesses = []
+        self.list_of_guesses = []
 
     def check_guess(self, guess):
         guess = guess.lower()
             
-        if guess in word:
-            print(f"Good guess! {guess} is in the word.")
+        #if guess in word:
+            #print(f"Good guess! {guess} is in the word.")
+        #for index, letter in enumerate(self.word_guessed):
+            #print(f"{letter} is at index {index}")
+        
+        for letter in word:
+            if letter == guess:
+                current_index = word.index(letter)
+                #print(current_index)
+                print(f"{letter} is at {self.word_guessed[current_index]} = index: {current_index}")
+
+                #print(f"Yes, {guess} is in this word")
+                #pass
+            #else:
+                #print(f"Your guess: {guess} does not equal {letter}")
             
-            #for letter in word:
-                #if letter == guess:
-                    #to replace underscores with correct guess
-                    #letter_locations = word_guessed.index
-                    #print(guess, letter)
-                    #word_guessed
-        else:
-            print(f"Sorry, {guess} is not in the word. Try again.")
+            #to replace underscores with correct guess
+            #letter_locations = word_guessed.index
+                #print(guess, letter)
+            #word_guessed
+        #else:
+            #print(f"Sorry, {guess} is not in the word. Try again.")
 
 
     def ask_for_input(self):
-        list_of_guesses = []
 
-        word_blanks = []
         for i in range(len(word)):
-            word_blanks.append('_')
-        print(word_blanks)
+            self.word_guessed.append('_')
+        print(self.word_guessed)
 
-        for index, letter in enumerate(zip(word_blanks, word)):
-            underscore, character = letter
-            print(index, underscore, character)
-            
+        #for index, letter in enumerate(self.word_guessed):
+            #print(f"{letter} is at index {index}")
             #print(index, letter)
-            #if letter in word:
-            #    print(letter, "is in", index)
-           
-        #don't use -> for underscore, letter in zip(word_blanks, word):
-            #print(underscore, letter)
+            #pass
     
+        
         while True:
             guess = input("Please guess a letter: ")
             #if len(guess) == 1 and guess.isalpha():
@@ -65,12 +56,12 @@ class Hangman:
                 #break
             if len(guess) != 1:
                 print("Invalid letter. Please, enter a single alphabetical character.")
-            elif guess in list_of_guesses:
+            elif guess in self.list_of_guesses:
                 print("You already tried that letter!")
             else:
                 self.check_guess(guess)
-                
-                list_of_guesses.append(guess)
+                self.list_of_guesses.append(guess)
+        
 
         
 
