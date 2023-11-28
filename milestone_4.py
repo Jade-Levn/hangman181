@@ -12,7 +12,6 @@ class Hangman:
 
     def check_guess(self, guess):
         guess = guess.lower()
-        #print(f"Number of letters remaining: {self.num_letters}")
         
         for index, letter in enumerate(word):
             if letter == guess:                
@@ -28,7 +27,6 @@ class Hangman:
             self.word_guessed.append('_')
         print(self.word_guessed)
 
-        
         while True:
             guess = input("Please guess a letter: ")
             #if len(guess) == 1 and guess.isalpha():
@@ -40,9 +38,6 @@ class Hangman:
             else:
                 self.check_guess(guess)
                 self.list_of_guesses.append(guess)
-        
-
-        
 
 word_list = ["pineapple", "mango", "grapes", "strawberries", "kiwi"]
 word = choice(word_list)
