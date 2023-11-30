@@ -3,6 +3,7 @@ from random import choice
 class Hangman:
     def __init__(self, word_list, num_lives=5):
         self.word_list = word_list
+        #num_lives = 5
         self.num_lives = num_lives
 
         self.word = choice(word_list)
@@ -25,6 +26,7 @@ class Hangman:
             self.num_letters -= 1
         else:
             self.num_lives -= 1
+            #num_lives -= 1
             print(f"Sorry, {guess} is not in the word.")
             print(f"You have {self.num_lives} lives left.")
 
@@ -37,7 +39,6 @@ class Hangman:
             guess = input("Please guess a letter: ")
             if len(guess) != 1 and guess.isalpha():
                 print("Invalid letter. Please, enter a single alphabetical character.")
-                #break
             elif guess in self.list_of_guesses:
                 print("You already tried that letter!")
             else:
@@ -49,18 +50,18 @@ def play_game(word_list):
     game = Hangman(word_list, num_lives)
 
     while True:
-        if num_lives == 0:
+        #print(f"Number of lives = {game.num_lives}")
+        if game.num_lives == 0:
             print("You lost!")
+            break
         elif game.num_letters > 0:
+            print(f"Number of letters left: {game.num_letters}")
             game.ask_for_input()
+            break
         else:
             print("Congratulations. You won the game!")
-
+            break
 
 word_list = ["pineapple", "mango", "grapes", "strawberries", "kiwi"]
-#game = Hangman(word_list)
-#game.ask_for_input()
-#word = choice(word_list)
 
 play_game(word_list)
-#print(word)
