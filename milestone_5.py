@@ -3,22 +3,46 @@ from random import choice
 class Hangman:
     def __init__(self, word_list, num_lives=5):
         self.word_list = word_list
-        #num_lives = 5
         self.num_lives = num_lives
 
         self.word = choice(word_list)
-        print(self.word)
         
         self.word_guessed = []
         
         self.num_letters = len(set(self.word))
         self.list_of_guesses = []
 
+    def play_game(self):
+        num_lives = 5
+
+        game = Hangman(word_list, num_lives)
+        print(game.word)
+        #game.word_list = self.word_list
+    
+        #print(f"Game number of lives: {game.num_lives}\n Self number of lives: {self.num_lives}")
+        #print(f"Game number of letters: {game.num_letters}\n Self number of letters: {self.num_letters}")
+        #game.num_lives = self.num_lives
+        #game.num_letters = self.num_letters
+
+        while True:
+            if game.num_lives == 0:
+                print("You lost!")
+                break
+            elif game.num_letters > 0:
+                print(f"Number of letters left: {game.num_letters}")
+                game.ask_for_input()
+                break
+            else:
+                print("Congratulations. You won the game!")
+                break
+        
+        #print(f"Game number of lives: {game.num_lives}\n Self number of lives: {self.num_lives}")
+        #print(f"Game number of letters: {game.num_letters}\n Self number of letters: {self.num_letters}")
+
     def check_guess(self, guess):
         guess = guess.lower()
         
         if guess in self.word:                
-            #self.word_guessed[index] = guess
             print(f"Good guess! {guess} is in the word.")
             for index, letter in enumerate(self.word):
                 if letter == guess:
@@ -26,7 +50,6 @@ class Hangman:
             self.num_letters -= 1
         else:
             self.num_lives -= 1
-            #num_lives -= 1
             print(f"Sorry, {guess} is not in the word.")
             print(f"You have {self.num_lives} lives left.")
 
@@ -45,23 +68,9 @@ class Hangman:
                 self.check_guess(guess)
                 self.list_of_guesses.append(guess)
 
-def play_game(word_list):
-    num_lives = 5
-    game = Hangman(word_list, num_lives)
-
-    while True:
-        #print(f"Number of lives = {game.num_lives}")
-        if game.num_lives == 0:
-            print("You lost!")
-            break
-        elif game.num_letters > 0:
-            print(f"Number of letters left: {game.num_letters}")
-            game.ask_for_input()
-            break
-        else:
-            print("Congratulations. You won the game!")
-            break
 
 word_list = ["pineapple", "mango", "grapes", "strawberries", "kiwi"]
 
-play_game(word_list)
+hangman = Hangman(word_list)
+#hangman.play_game(word_list)
+hangman.play_game()
