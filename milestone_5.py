@@ -19,12 +19,13 @@ class Hangman:
         print(game.word)
         #game.word_list = self.word_list
     
-        #print(f"Game number of lives: {game.num_lives}\n Self number of lives: {self.num_lives}")
-        #print(f"Game number of letters: {game.num_letters}\n Self number of letters: {self.num_letters}")
+        print(f"Game number of lives: {game.num_lives}\nSelf number of lives: {self.num_lives}")
+        print(f"Game number of letters: {game.num_letters}\nSelf number of letters: {self.num_letters}")
         #game.num_lives = self.num_lives
         #game.num_letters = self.num_letters
 
         while True:
+            #print("Help!")
             if game.num_lives == 0:
                 print("You lost!")
                 break
@@ -35,6 +36,7 @@ class Hangman:
             else:
                 print("Congratulations. You won the game!")
                 break
+            #False
         
         #print(f"Game number of lives: {game.num_lives}\n Self number of lives: {self.num_lives}")
         #print(f"Game number of letters: {game.num_letters}\n Self number of letters: {self.num_letters}")
