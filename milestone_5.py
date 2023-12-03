@@ -61,8 +61,7 @@ class Hangman:
             else:
                 self.check_guess(guess)
                 self.list_of_guesses.append(guess)
-                print(f"List of guesses: {self.list_of_guesses}")
-                print(f"Num list of guesses: {len(self.list_of_guesses)},\nNum list of letters: {self.num_letters}")
+                
                 if self.num_lives == 0:
                     break
                 elif "_" not in self.word_guessed:
